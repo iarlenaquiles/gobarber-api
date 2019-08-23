@@ -1,4 +1,4 @@
 export default {
   secret: 'etetetetetetetete',
-  expiresIn: '7d'
-}
+  expiresIn: '7d',
+};
