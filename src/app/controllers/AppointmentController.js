@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { startOfHour, parseISO } from 'date-fns';
 import Appointment from '../models/Appointment';
 import User from '../models/User';
 
@@ -30,6 +31,8 @@ class AppointmentController {
         .status(401)
         .json({ error: 'You can only create appointments with providers' });
     }
+
+    const hourStart = startOfHour(parseISO(date));
 
     const appointment = await Appointment.create({
       user_id: req.userId,
